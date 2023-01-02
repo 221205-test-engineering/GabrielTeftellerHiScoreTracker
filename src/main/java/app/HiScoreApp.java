@@ -31,18 +31,38 @@ public class HiScoreApp
             ctx.json(newScore);
         });
 
-        // return all scores
+        // return all scores; returns score by initial if query is included in request
         app.get("/scores", ctx ->
         {
-            List<Score> scores = new ArrayList<>();
-            for (Score score : scoreMap.values()) {
-                scores.add(score);
+            String searchInitials = ctx.queryParam("initials");
+            if (searchInitials != null)
+            {
+                String initials;
+
+                for (int id = 0; id < scoreMap.size(); ++id)
+                {
+                    initials = scoreMap.get(id).getInitials();
+                    if (initials.equals(searchInitials))
+                    {
+                        ctx.json(scoreMap.get(id));
+                    }
+                }
             }
-            ctx.json(scores);
+            else
+            {
+                List<Score> scores = new ArrayList<>();
+                for (Score score : scoreMap.values()) {
+                    scores.add(score);
+                }
+                ctx.json(scores);
+            }
+
+
         });
 
+        /*
         // returns score by specified initials; not yet working
-        app.get("/scores?initials={AAA}", ctx ->
+        app.get("/scores", ctx ->
         {
            String searchInitials = ctx.queryParam("initials");
            String initials;
@@ -56,6 +76,7 @@ public class HiScoreApp
                 }
             }
         });
+        */
 
         // returns score by specified id; Returns 404 if score with ID not found
         app.get("/scores/{id}", ctx ->
