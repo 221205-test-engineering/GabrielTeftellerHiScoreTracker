@@ -19,6 +19,7 @@ public class HiScoreApp
         Map<Integer, Score> scoreMap = new HashMap<>();
 
         // create a new score
+        // TODO: redirect to DAO
         app.post("/scores", ctx ->
         {
             Score newScore = ctx.bodyAsClass(Score.class); // Unmarshalling
@@ -32,6 +33,7 @@ public class HiScoreApp
         });
 
         // return all scores; returns score by initial if query is included in request
+        // TODO: redirect to DAO
         app.get("/scores", ctx ->
         {
             String searchInitials = ctx.queryParam("initials");
@@ -60,25 +62,8 @@ public class HiScoreApp
 
         });
 
-        /*
-        // returns score by specified initials; not yet working
-        app.get("/scores", ctx ->
-        {
-           String searchInitials = ctx.queryParam("initials");
-           String initials;
-
-            for (int id = 0; id < scoreMap.size(); ++id)
-            {
-                initials = scoreMap.get(id).getInitials();
-                if (initials.equals(searchInitials))
-                {
-                    ctx.json(scoreMap.get(id));
-                }
-            }
-        });
-        */
-
         // returns score by specified id; Returns 404 if score with ID not found
+        // TODO: redirect to DAO
         app.get("/scores/{id}", ctx ->
         {
             int scoreId = Integer.parseInt(ctx.pathParam("id"));
@@ -96,6 +81,7 @@ public class HiScoreApp
         });
 
         // replaces score with specified id; Returns 404 if score with ID not found
+        // TODO: redirect to DAO
         app.put("/scores/{id}", ctx ->
         {
             int scoreId = Integer.parseInt(ctx.pathParam("id"));
@@ -116,6 +102,7 @@ public class HiScoreApp
         });
 
         // deletes score with specified id; Returns 404 if score with ID not found
+        // TODO: redirect to DAO
         app.delete("/scores/{id}", ctx ->
         {
             int scoreId = Integer.parseInt(ctx.pathParam("id"));
