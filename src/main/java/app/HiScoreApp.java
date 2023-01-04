@@ -18,6 +18,7 @@ public class HiScoreApp
         Map<Integer, Score> scoreMap = new HashMap<>();
 
         // create a new score
+        // TODO: implement http responses
         app.post("/scores", ctx ->
         {
             ScoreDAO dao = new ScoreDAO();
@@ -64,43 +65,26 @@ public class HiScoreApp
         });
 
         // replaces score with specified id; Returns 404 if score with ID not found
-        // TODO: redirect to DAO
+        // TODO: implement http responses
         app.put("/scores/{id}", ctx ->
         {
             int scoreId = Integer.parseInt(ctx.pathParam("id"));
-            Score score = scoreMap.get(scoreId);
+            ScoreDAO dao = new ScoreDAO();
+            Score newScore = ctx.bodyAsClass(Score.class);
 
-            if (score == null)
-            {
-                ctx.status(HttpStatus.NOT_FOUND);
-                ctx.result("No score with ID " + scoreId + " found.");
-            }
-            else
-            {
-                Score newScore = ctx.bodyAsClass(Score.class); // Unmarshalling
-                newScore.setId(score.getId());
-                scoreMap.replace(scoreId, newScore);
-                ctx.json(newScore);
-            }
+            dao.replaceScoreById(scoreId, newScore);
+            ctx.result("Score with ID " + scoreId + " successfully replaced.");
         });
 
         // deletes score with specified id; Returns 404 if score with ID not found
-        // TODO: redirect to DAO
+        // TODO: implement http responses
         app.delete("/scores/{id}", ctx ->
         {
+            ScoreDAO dao = new ScoreDAO();
             int scoreId = Integer.parseInt(ctx.pathParam("id"));
-            Score score = scoreMap.get(scoreId);
 
-            if (score == null)
-            {
-                ctx.status(HttpStatus.NOT_FOUND);
-                ctx.result("No score with ID " + scoreId + " found.");
-            }
-            else
-            {
-                scoreMap.remove(scoreId);
-                ctx.result("Score with ID " + scoreId + " successfully deleted.");
-            }
+            dao.deleteById(scoreId);
+            ctx.result("Score with ID " + scoreId + " successfully deleted.");
         });
 
         app.start(8080);

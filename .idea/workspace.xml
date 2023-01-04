@@ -4,11 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8b9ff926-e110-4115-befb-6b21f5ea1df1" name="Changes" comment="Initial Commit">
+    <list default="true" id="8b9ff926-e110-4115-befb-6b21f5ea1df1" name="Changes" comment="Implemented postNewScore, getAllScores and getScoreById in the DAO">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/app/HiScoreApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/HiScoreApp.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/daos/ScoreDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/daos/ScoreDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/models/Score.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/Score.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -123,7 +122,14 @@
       <option name="project" value="LOCAL" />
       <updated>1672359530733</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Implemented postNewScore, getAllScores and getScoreById in the DAO">
+      <created>1672868326890</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1672868326890</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -131,6 +137,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Initial Commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="Initial Commit" />
+    <MESSAGE value="Implemented postNewScore, getAllScores and getScoreById in the DAO" />
+    <option name="LAST_COMMIT_MESSAGE" value="Implemented postNewScore, getAllScores and getScoreById in the DAO" />
   </component>
 </project>

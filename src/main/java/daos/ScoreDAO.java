@@ -82,9 +82,9 @@ public class ScoreDAO
 					(
 						new Score
 							(
-									results.getInt("id"),
-									results.getString("initials"),
-									results.getInt("points")
+								results.getInt("id"),
+								results.getString("initials"),
+								results.getInt("points")
 							)
 					);
 			}
@@ -100,7 +100,6 @@ public class ScoreDAO
 	public Score getScoreById(int id)
 	{
 		String sql = "select * from scores where id = ? order by points desc;";
-		List<Score> scores = new ArrayList<>();
 		Score score = null;
 
 		try (Connection con = conUtil.getConnection())
@@ -129,14 +128,38 @@ public class ScoreDAO
 	}
 
 	// Update
-	public Score replaceScoreById(int id)
+	public void replaceScoreById(int id, Score score)
 	{
-		return null;
+		String sql = "UPDATE scores SET initials = ?, points = ? WHERE id = ?;";
+
+		try (Connection con = conUtil.getConnection())
+		{
+			PreparedStatement statement = con.prepareStatement(sql);
+			statement.setString(1, score.getInitials());
+			statement.setInt(2, score.getPoints());
+			statement.setInt(3, id);
+			statement.executeUpdate();
+		}
+		catch (SQLException e)
+		{
+			e.printStackTrace();
+		}
 	}
 
 	// Delete
-	public Score deleteById(int id)
+	public void deleteById(int id)
 	{
-		return null;
+		String sql = "delete from scores where id = ?;";
+
+		try (Connection con = conUtil.getConnection())
+		{
+			PreparedStatement statement = con.prepareStatement(sql);
+			statement.setInt(1, id);
+			statement.executeUpdate();
+		}
+		catch (SQLException e)
+		{
+			e.printStackTrace();
+		}
 	}
 }
