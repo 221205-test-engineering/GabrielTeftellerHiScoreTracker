@@ -4,15 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8b9ff926-e110-4115-befb-6b21f5ea1df1" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/app/HiScoreApp.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/models/Score.java" afterDir="false" />
+    <list default="true" id="8b9ff926-e110-4115-befb-6b21f5ea1df1" name="Changes" comment="Initial Commit">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/app/HiScoreApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/HiScoreApp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/daos/ScoreDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/daos/ScoreDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/models/Score.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/Score.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,6 +29,11 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="useMavenConfig" value="true" />
+      </MavenGeneralSettings>
+    </option>
     <option name="importingSettings">
       <MavenImportingSettings>
         <option name="workspaceImportEnabled" value="true" />
@@ -56,13 +57,30 @@
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
     &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.HiScoreApp">
+    <configuration name="ConnectionUtility" type="Application" factoryName="Application">
+      <envs>
+        <env name="PASSWORD" value="GhostCyclone0224" />
+        <env name="URL" value="jdbc:postgresql://db-221205-test-eng-gt.cxgvmhnzb3ra.us-east-1.rds.amazonaws.com:5432/postgres" />
+        <env name="USER" value="aaron" />
+      </envs>
+      <module name="HiScoreTrackerGabrielTefteller" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="HiScoreApp" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <envs>
+        <env name="PASSWORD" value="GhostCyclone0224" />
+        <env name="URL" value="jdbc:postgresql://db-221205-test-eng-gt.cxgvmhnzb3ra.us-east-1.rds.amazonaws.com:5432/postgres" />
+        <env name="USER" value="aaron" />
+      </envs>
       <option name="MAIN_CLASS_NAME" value="app.HiScoreApp" />
       <module name="HiScoreTrackerGabrielTefteller" />
       <extension name="coverage">
@@ -75,6 +93,10 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <list>
+      <item itemvalue="Application.ConnectionUtility" />
+      <item itemvalue="Application.HiScoreApp" />
+    </list>
     <recent_temporary>
       <list>
         <item itemvalue="Application.HiScoreApp" />
@@ -92,11 +114,23 @@
       <workItem from="1672258718073" duration="4908000" />
       <workItem from="1672337868063" duration="107000" />
       <workItem from="1672346374567" duration="11029000" />
-      <workItem from="1672359385169" duration="86000" />
+      <workItem from="1672359385169" duration="186000" />
     </task>
+    <task id="LOCAL-00001" summary="Initial Commit">
+      <created>1672359530733</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1672359530733</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Initial Commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="Initial Commit" />
   </component>
 </project>

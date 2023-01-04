@@ -15,6 +15,12 @@ public class Score
         this.points = points;
     }
 
+    public Score(String initials, int points)
+    {
+        this.initials = initials;
+        this.points = points;
+    }
+
     public int getId() {
         return id;
     }

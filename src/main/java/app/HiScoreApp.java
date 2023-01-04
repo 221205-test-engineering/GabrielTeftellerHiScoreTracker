@@ -1,5 +1,6 @@
 package app;
 
+import daos.ScoreDAO;
 import models.Score;
 import io.javalin.Javalin;
 import io.javalin.http.HttpStatus;
@@ -10,8 +11,6 @@ import java.util.Map;
 
 public class HiScoreApp
 {
-    public static int lastId = 0;
-
     public static void main(String[] args)
     {
         Javalin app = Javalin.create();
@@ -19,55 +18,38 @@ public class HiScoreApp
         Map<Integer, Score> scoreMap = new HashMap<>();
 
         // create a new score
-        // TODO: redirect to DAO
         app.post("/scores", ctx ->
         {
-            Score newScore = ctx.bodyAsClass(Score.class); // Unmarshalling
-            newScore.setId(lastId++);
-
-            scoreMap.put(newScore.getId(), newScore);
-
-            ctx.status(HttpStatus.CREATED);
-
-            ctx.json(newScore);
+            ScoreDAO dao = new ScoreDAO();
+            Score newScore = ctx.bodyAsClass(Score.class);
+            dao.postNewScore(newScore);
         });
 
         // return all scores; returns score by initial if query is included in request
-        // TODO: redirect to DAO
         app.get("/scores", ctx ->
         {
+            ScoreDAO dao = new ScoreDAO();
             String searchInitials = ctx.queryParam("initials");
+            List<Score> scores;
             if (searchInitials != null)
             {
-                String initials;
-
-                for (int id = 0; id < scoreMap.size(); ++id)
-                {
-                    initials = scoreMap.get(id).getInitials();
-                    if (initials.equals(searchInitials))
-                    {
-                        ctx.json(scoreMap.get(id));
-                    }
-                }
+                scores = dao.getAllScores(searchInitials);
             }
             else
             {
-                List<Score> scores = new ArrayList<>();
-                for (Score score : scoreMap.values()) {
-                    scores.add(score);
-                }
-                ctx.json(scores);
+                scores = dao.getAllScores();
             }
 
-
+            ctx.status(200);
+            ctx.json(scores);
         });
 
         // returns score by specified id; Returns 404 if score with ID not found
-        // TODO: redirect to DAO
         app.get("/scores/{id}", ctx ->
         {
+            ScoreDAO dao = new ScoreDAO();
             int scoreId = Integer.parseInt(ctx.pathParam("id"));
-            Score score = scoreMap.get(scoreId);
+            Score score = dao.getScoreById(scoreId);
 
             if (score == null)
             {
@@ -76,6 +58,7 @@ public class HiScoreApp
             }
             else
             {
+                ctx.status(200);
                 ctx.json(score);
             }
         });
